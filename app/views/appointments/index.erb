@@ -1,0 +1,7 @@
+Welcome, <%=@user.username%><br>
+<%@appts.each do |a|%>
+<%=a.title%>
+<%=a.date%>
+<%=a.time%>
+<%end%>
+<a href="/appointments/new"><button>Create A New Appointment</button></a>
