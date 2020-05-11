@@ -1,8 +1,12 @@
 class AppointmentsController < ApplicationController 
 
     get '/appointments' do 
+        if !logged_in 
+            redirect '/login'
+        else
         @appt = Appointment.all
         erb :'/appointments/index'
+        end
     end
 
     get '/appointments/new' do 
