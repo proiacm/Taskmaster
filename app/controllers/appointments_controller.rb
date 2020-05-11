@@ -1,6 +1,8 @@
 class AppointmentsController < ApplicationController 
 
     get '/appointments' do 
+        @appt = Appointment.all
+        erb :'/appointments/index'
     end
 
     get '/appointments/new' do 
