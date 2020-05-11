@@ -29,6 +29,11 @@ class AppointmentsController < ApplicationController
     end
 
     get '/appointments/:id' do 
+        @appts = Appointment.find_by_id(:id)
+        if !logged_in? 
+            redirect '/login'
+        end
+            erb :'/appointments/show'
     end 
 
     get '/appointments/:id/edit' do 
