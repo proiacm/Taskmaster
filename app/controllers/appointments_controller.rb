@@ -30,7 +30,6 @@ class AppointmentsController < ApplicationController
 
     get '/appointments/:id' do 
         @appt = Appointment.find_by_id(params[:id])
-        binding.pry
         if !logged_in? 
             redirect '/login'
         end
