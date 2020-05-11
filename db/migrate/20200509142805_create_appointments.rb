@@ -2,8 +2,8 @@ class CreateAppointments < ActiveRecord::Migration
   def change
     create_table :appointments do |t|
       t.string :title 
-      t.datetime :date
-      t.datetime :time
+      t.date :date
+      t.string :time
       t.integer :user_id 
     end
   end

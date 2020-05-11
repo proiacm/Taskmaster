@@ -1,0 +1,12 @@
+<%=@appt%>
+
+<form method="GET" action="/appointments/<%= @appt.id %>/edit">
+<input type="submit" value="Edit Appointment">
+</form>
+
+<p>Delete this appointment:</p>
+<form method="POST" action="/tweets/<%= @tweet.id %>">
+     <input id="hidden" type="hidden" name="_method" value="DELETE">
+ 	 <input type="submit" value="Delete">
+</form>
+<a href="/appointments"><button>Back to Appointments</button></a>
