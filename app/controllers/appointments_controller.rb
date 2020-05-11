@@ -11,6 +11,11 @@ class AppointmentsController < ApplicationController
     end
 
     get '/appointments/new' do 
+        if !logged_in? 
+            redirect '/login' 
+        else
+            erb :'appointments/new'
+        end
     end 
 
     post '/appointments' do
