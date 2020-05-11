@@ -18,7 +18,14 @@ class AppointmentsController < ApplicationController
         end
     end 
 
-    post '/appointments' do
+    post '/appointments/new' do
+        unless params[:title] == "" && params[:date] == "" && params[:time] == ""
+            @appt = Appointment.new(id: params[:id], title: params[:title], date: params[:date], time: params[:time])
+            @appt[:user_id] = session[:user_id]
+            @appt.save
+            redirect "/appointments/#{@appt.id}"
+        end
+            redirect '/appointments/new'
     end
 
     get '/appointments/:id' do 
