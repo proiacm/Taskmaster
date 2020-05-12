@@ -37,9 +37,26 @@ class AppointmentsController < ApplicationController
     end 
 
     get '/appointments/:id/edit' do 
+        if !logged_in?
+            redirect '/login'
+        end
+        @appt = Appointment.find_by_id(params[:id])
+        if session[:user_id] != @appt[:user_id]
+            redirect '/appointments'
+        end
+            erb :'/appointments/edit'
     end 
 
     patch '/appointments/:id' do 
+        @appt = Appointment.find_by_id(params[:id])
+        if params[:title].empty? && params[:date].empty? && params[:time].empty?
+          redirect to "/tweets/#{@appt.id}/edit"
+        end
+        if session[:user_id] = @appt.user_id
+        @appt.update(title: params[:title], date: params[:date], time: params[:time])
+        @appt.save
+        end
+        redirect to "/appointments/#{@appt.id}"
     end
 
     delete '/appointments/:id' do 

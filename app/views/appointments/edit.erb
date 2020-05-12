@@ -1,0 +1,7 @@
+<form action="/appointments/<%= @appt.id %>" method="POST">
+    	   <input id="hidden" type="hidden" name="_method" value="PATCH">
+    Title: <input type="text" name="title" value="<%= @appt.title %>"><br><br>
+    Date: <input type="date" name="date" value="<%= @appt.date%>"><br><br>
+    Time: <input type="text" name="time" value="<%= @appt.time %>"><br><br>
+		 <input type="submit" id="submit" value="Submit">
+	</form>
