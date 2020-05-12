@@ -6,6 +6,7 @@ class AppointmentsController < ApplicationController
             redirect '/login'
         end
             @appts = Appointment.where(user_id: @user.id)
+            @appts.order(date: :asc)
             erb :'/appointments/index'
     end
 
