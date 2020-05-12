@@ -38,8 +38,17 @@
   {
       background-color:#87988E;
       border-radius: 4px;
-      width: 90%;
+      width: 70%;
       padding: 3%; 
+      cursor:pointer;  
+  }
+
+  .button1
+  {
+      background-color:#87988E;
+      border-radius: 4px;
+      width: 10%;
+      padding: 1%; 
       cursor:pointer;  
   }
 
