@@ -59,6 +59,15 @@ class AppointmentsController < ApplicationController
         redirect to "/appointments/#{@appt.id}"
     end
 
-    delete '/appointments/:id' do 
+    delete '/appointments/:id' do
+        if !logged_in? 
+            redirect '/login'
+        end
+        @appt = Appointment.find_by_id(params[:id])
+        if session[:user_id ] != @appt[:user_id] 
+            redirect '/appointments'
+        end
+        @appt.destroy 
+        redirect '/appointments'
     end
 end
