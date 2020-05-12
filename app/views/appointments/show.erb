@@ -7,7 +7,7 @@
 
 <%=@appt.title.strip.titleize%> <br>
 on <%=@appt.date%> <br>
-at <%=@appt.time.strip.gsub(/\s+/, '').upcase%> <br>
+at <%=@appt.time%> <br>
  <br>
 <form method="GET" action="/appointments/<%= @appt.id %>/edit">
 <input type="submit" class="button1" value="Edit">
