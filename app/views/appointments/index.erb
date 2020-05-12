@@ -1,7 +1,14 @@
-Welcome, <%=@user.username%><br>
+<div class="sidebar">
+    <h5>Set An Appointment:</h5>
+    <a href="/appointments/new"><button>Create A New Appointment</button></a>
+    <h5>Log Out:</h5>
+    <a href="/logout"><button>Log Out</button></a>
+</div>
+
+<h1>Hello, <%=@user.username%>!</h1>
+<br>
 <%@appts.each do |a|%>
-<%=a.title%>
-<%=a.date%>
-<%=a.time%>
+<%=a.title%><br>
+<%=a.date%><br>
+<%=a.time%><br>
 <%end%>
-<a href="/appointments/new"><button>Create A New Appointment</button></a>
