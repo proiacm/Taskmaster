@@ -62,6 +62,15 @@
       cursor:pointer;  
   }
 
+  .btn-toolbar button {
+    background-color: #87988E;
+    border-radius: 4px;
+    width: 20%;
+    padding: 2%;
+    cursor: pointer;
+    float: none;
+  }
+
   a {
     color: rgb(93, 107, 98);
   }

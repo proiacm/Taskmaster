@@ -6,6 +6,7 @@
 </div>
 
 <h1>Hello, <%=@user.username%>!</h1>
+<h3>Take a look at your upcoming appointments:</h3>
 <br>
 <%@appts.each do |a|%>
  <a href="/appointments/<%=a.id%>"><%=a.title.strip.titleize%></a><br>
