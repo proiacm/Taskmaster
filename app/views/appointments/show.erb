@@ -1,22 +1,23 @@
+
 <div class="sidebar">
      <h5>Back To All:</h5>
-     <a href="/appointments"><button>Appointments</button></a>
+     <a href="/appointments"><button class="button">Appointments</button></a>
     <h5>Log Out:</h5>
-    <a href="/logout"><button>Log Out</button></a>
+    <a href="/logout"><button class="button">Log Out</button></a>
 </div>
 
-<%=@appt.title%> <br>
+<%=@appt.title.titleize%> <br>
 on <%=@appt.date%> <br>
 at <%=@appt.time%> <br>
  <br>
 <h5>Edit This Appointment:</h5>
 <form method="GET" action="/appointments/<%= @appt.id %>/edit">
-<input type="submit" value="Edit">
+<input type="submit" class="button" value="Edit">
 </form>
 
 <h5>Delete This Appointment:</h5>
 <form method="POST" action="/appointments/<%= @appt.id %>">
      <input id="hidden" type="hidden" name="_method" value="DELETE">
- 	 <input type="submit" value="Delete">
+ 	 <input type="submit" class="button" value="Delete">
 </form>
 
