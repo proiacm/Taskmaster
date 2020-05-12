@@ -34,6 +34,16 @@
     width: 50%;
   }
 
+  .container {
+    width: 200px;
+    clear: both;
+  }
+  
+  .container input {
+    width: 100%;
+    clear: both;
+  }
+
   .button
   {
       background-color:#87988E;
