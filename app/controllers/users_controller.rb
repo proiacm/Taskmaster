@@ -9,18 +9,12 @@ class UsersController < ApplicationController
   
       post '/signup' do 
         unless params[:username] == "" || params[:email] == ""
-          user = User.new(params)
+          user = User.new(username: params[:username], email: params[:email], password: params[:password])
           if user.save
-              session[:user_id] = user.id
+              session[:user_id] = user[:id]
               redirect "/appointments"
           end
         end
           redirect "/signup"
       end
-
-        # may or may not use
-        # get '/users/:slug' do 
-        #   @user = User.find {|u| u.slug == params[:slug]}
-        #   erb :'/'
-        # end
 end

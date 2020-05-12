@@ -4,10 +4,9 @@ class AppointmentsController < ApplicationController
         @user = current_user
         if !logged_in?
             redirect '/login'
-        else
-            @appts = Appointment.all
-            erb :'/appointments/index'
         end
+            @appts = Appointment.where(user_id: @user.id)
+            erb :'/appointments/index'
     end
 
     get '/appointments/new' do 
