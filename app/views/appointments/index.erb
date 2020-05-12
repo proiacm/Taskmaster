@@ -10,5 +10,5 @@
 <%@appts.each do |a|%>
  <a href="/appointments/<%=a.id%>"><%=a.title.strip.titleize%></a><br>
 on <%=a.date%><br>
-at <%=a.time.strip.gsub(/\s+/, '').upcase%><br><br>
+at <%=a.time%><br><br>
 <%end%>

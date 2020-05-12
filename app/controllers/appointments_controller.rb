@@ -7,6 +7,7 @@ class AppointmentsController < ApplicationController
             @user = current_user
             @appts = Appointment.where(user_id: @user.id)
             @appts = @appts.order(date: :asc)
+            @appts = @appts.order(time: :asc)
             erb :'/appointments/index'
     end
 
