@@ -1,8 +1,7 @@
 
 <div class="sidebar">
-     <h5>Back To All:</h5>
      <a href="/appointments"><button class="button">Appointments</button></a>
-    <h5>Log Out:</h5>
+    <br><br>
     <a href="/logout"><button class="button">Log Out</button></a>
 </div>
 
@@ -10,12 +9,10 @@
 on <%=@appt.date%> <br>
 at <%=@appt.time%> <br>
  <br>
-<h5>Edit This Appointment:</h5>
 <form method="GET" action="/appointments/<%= @appt.id %>/edit">
 <input type="submit" class="button1" value="Edit">
 </form>
-
-<h5>Delete This Appointment:</h5>
+<br>
 <form method="POST" action="/appointments/<%= @appt.id %>">
      <input id="hidden" type="hidden" name="_method" value="DELETE">
  	 <input type="submit" class="button1" value="Delete">
