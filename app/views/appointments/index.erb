@@ -8,7 +8,7 @@
 <h1>Hello, <%=@user.username%>!</h1>
 <br>
 <%@appts.each do |a|%>
- <a href="/appointments/<%=a.id%>"><%=a.title.titleize%></a><br>
+ <a href="/appointments/<%=a.id%>"><%=a.title.strip.titleize%></a><br>
 on <%=a.date%><br>
-at <%=a.time%><br><br>
+at <%=a.time.strip.gsub(/\s+/, '').upcase%><br><br>
 <%end%>
