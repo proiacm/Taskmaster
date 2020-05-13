@@ -5,7 +5,7 @@
     <a href="/appointments/new"><button class="button">New Appointment</button></a>  
 </div>
 
-<h1>Hello, <%=@user.username%>!</h1>
+<h1>Hello, <%=current_user.username%>!</h1>
 <h3>Take a look at your upcoming appointments:</h3>
 <br>
 <%@appts.each do |a|%>

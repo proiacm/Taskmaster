@@ -1,6 +1,6 @@
 <h1> Welcome to Glamlex! </h1>
 <br>
-
+<%=@user.errors.full_messages if @user%>
 <div class="container">
     <form action="/signup" method="POST">
     Username: <input type="text" name="username"><br><br>

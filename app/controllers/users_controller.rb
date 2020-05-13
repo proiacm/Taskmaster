@@ -4,15 +4,16 @@ class UsersController < ApplicationController
         if logged_in?
           redirect '/appointments'
         end
-          erb :'/users/new'
+        erb :'/users/new'
       end 
   
       post '/signup' do 
-          user = User.new(params)
-          if user.save
-              session[:user_id] = user[:id]
+          @user = User.new(params)
+          if @user.save
+              session[:user_id] = @user[:id]
               redirect "/appointments"
+          else
+            erb :'/users/new'
           end
-          redirect "/signup"
       end
 end

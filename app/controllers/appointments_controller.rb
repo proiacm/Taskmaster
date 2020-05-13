@@ -4,8 +4,7 @@ class AppointmentsController < ApplicationController
         if !logged_in?
             redirect '/login'
         end
-            @user = current_user
-            @appts = Appointment.where(user_id: @user.id)
+            @appts = current_user.appointments
             @appts = @appts.order(date: :asc)
             @appts = @appts.order(time: :asc)
             erb :'/appointments/index'
@@ -20,8 +19,7 @@ class AppointmentsController < ApplicationController
     end 
 
     post '/appointments/new' do
-           @appt = Appointment.new(params)
-            @appt[:user_id] = session[:user_id]
+           @appt = current_user.appointments.build(params)
           if @appt.save
             redirect "/appointments/#{@appt.id}"
         end
@@ -32,7 +30,7 @@ class AppointmentsController < ApplicationController
         if !logged_in? 
             redirect '/login'
         end
-            @appt = Appointment.find_by_id(params[:id])
+            @appt = current_user.appointments.find_by_id(params[:id])
             erb :'/appointments/show'
     end 
 
@@ -40,7 +38,7 @@ class AppointmentsController < ApplicationController
         if !logged_in?
             redirect '/login'
         end
-        @appt = Appointment.find_by_id(params[:id])
+        @appt = current_user.appointments.find_by_id(params[:id])
         if session[:user_id] != @appt[:user_id]
             redirect '/appointments'
         end
@@ -48,13 +46,10 @@ class AppointmentsController < ApplicationController
     end 
 
     patch '/appointments/:id' do 
-        @appt = Appointment.find_by_id(params[:id])
-        if params[:title].empty? && params[:date].empty? && params[:time].empty?
-          redirect to "/tweets/#{@appt.id}/edit"
-        end
-        if session[:user_id] = @appt.user_id
-        @appt.update(title: params[:title], date: params[:date], time: params[:time])
-        @appt.save
+        @appt = current_user.appointments.find_by_id(params[:id])
+        if @appt
+            @appt.update(title: params[:title], date: params[:date], time: params[:time])
+            @appt.save
         end
         redirect to "/appointments/#{@appt.id}"
     end
@@ -63,11 +58,10 @@ class AppointmentsController < ApplicationController
         if !logged_in? 
             redirect '/login'
         end
-        @appt = Appointment.find_by_id(params[:id])
-        if session[:user_id ] != @appt[:user_id] 
-            redirect '/appointments'
+        @appt = current_user.appointments.find_by_id(params[:id])
+        if @appt 
+            @appt.destroy 
         end
-        @appt.destroy 
         redirect '/appointments'
     end
 end
