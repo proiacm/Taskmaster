@@ -5,8 +5,7 @@ class AppointmentsController < ApplicationController
             redirect '/login'
         end
             @appts = current_user.appointments
-            @appts = @appts.order(date: :asc)
-            @appts = @appts.order(time: :asc)
+            @appts = @appts.order(date: :asc, time: :asc)
             erb :'/appointments/index'
     end
 
