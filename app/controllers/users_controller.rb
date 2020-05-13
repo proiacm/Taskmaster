@@ -8,13 +8,11 @@ class UsersController < ApplicationController
       end 
   
       post '/signup' do 
-        unless params[:username] == "" || params[:email] == ""
-          user = User.new(username: params[:username], email: params[:email], password: params[:password])
+          user = User.new(params)
           if user.save
               session[:user_id] = user[:id]
               redirect "/appointments"
           end
-        end
           redirect "/signup"
       end
 end
