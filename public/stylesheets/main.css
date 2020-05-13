@@ -71,6 +71,11 @@
     float: none;
   }
 
+
+.errors {
+  color: red;
+}
+
   a {
     color: rgb(93, 107, 98);
   }

@@ -1,6 +1,18 @@
 <h1> Welcome to Glamlex! </h1>
 <br>
-<%=@user.errors.full_messages if @user%>
+
+<div class="errors">
+<%@alert = @user.errors.full_messages if @user%>
+  <ul>
+    <% if @alert %> 
+    <%@alert.each do |msg| %>
+      <li><%= msg + "!" %></li>
+    <% end %>
+    <%end%>
+  </ul>
+</div>
+<br>
+
 <div class="container">
     <form action="/signup" method="POST">
     Username: <input type="text" name="username"><br><br>
