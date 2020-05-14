@@ -19,7 +19,7 @@
     background-repeat: no-repeat;
     background-color: #fff;
     color: #333;
-    font-family: "Garamond";
+    font-family: 'Philosopher', sans-serif;
     line-height: 18px;
   }
 
@@ -32,6 +32,7 @@
     max-width: 960px;
     padding: 2%; 
     width: 50%;
+    border-radius: 4px;
   }
 
   .container {
@@ -50,7 +51,8 @@
       border-radius: 4px;
       width: 70%;
       padding: 3%; 
-      cursor:pointer;  
+      cursor:pointer;
+      font-family: 'Philosopher', sans-serif;  
   }
 
   .button1
@@ -59,7 +61,8 @@
       border-radius: 4px;
       width: 10%;
       padding: 1%; 
-      cursor:pointer;  
+      cursor:pointer;
+      font-family: 'Philosopher', sans-serif;  
   }
 
   .btn-toolbar button {
@@ -69,6 +72,7 @@
     padding: 2%;
     cursor: pointer;
     float: none;
+    font-family: 'Philosopher', sans-serif;
   }
 
 
