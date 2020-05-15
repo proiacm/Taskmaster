@@ -5,7 +5,7 @@
 <h3> Make Changes: </h3> <br>
 
 <div class="container">
-    <form action="/appointments/<%= @appt.id %>" method="POST">
+    <form action="/appointments/<%= @appt.id %>" method="POST" autocomplete="off">
     	   <input id="hidden" type="hidden" name="_method" value="PATCH">
     Title: <input type="text" name="title" value="<%= @appt.title.strip.titleize %>"><br><br>
     Date: <input type="date" name="date" value="<%= @appt.date%>"><br><br>
