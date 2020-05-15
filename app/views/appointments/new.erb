@@ -1,4 +1,16 @@
 <h1>What's the plan?</h1><br>
+
+<div class="errors">
+<%if @appt%>
+  <ul>
+    <%@appt.errors.full_messages.each do |msg| %>
+      <li><%= msg + "!" %></li>
+    <% end %>
+    <%end%>
+  </ul>
+</div>
+<br>
+
 <div class="container">
     <form action="/appointments" method="POST" autocomplete="off">
     Title: <input type="text" name="title"><br><br>

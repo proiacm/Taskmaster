@@ -4,6 +4,17 @@
 
 <h3> Make Changes: </h3> <br>
 
+<div class="errors">
+<%if @appt%>
+  <ul>
+    <%@appt.errors.full_messages.each do |msg| %>
+      <li><%= msg + "!" %></li>
+    <% end %>
+    <%end%>
+  </ul>
+</div>
+<br>
+
 <div class="container">
     <form action="/appointments/<%= @appt.id %>" method="POST" autocomplete="off">
     	   <input id="hidden" type="hidden" name="_method" value="PATCH">

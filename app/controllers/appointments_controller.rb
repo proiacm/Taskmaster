@@ -18,11 +18,17 @@ class AppointmentsController < ApplicationController
     end 
 
     post '/appointments' do #create route
-           @appt = current_user.appointments.build(params)
-          if @appt.save
-            redirect "/appointments/#{@appt.id}"
-        end
+        @appt = current_user.appointments.build(params)
+        if @appt
+            if @appt.save
+                redirect "/appointments/#{@appt.id}"
+            else 
+                #handle error messages
+                erb :'/appointments/new'
+            end
+        else
         redirect '/appointments/new'
+        end
     end
 
     get '/appointments/:id' do #show route

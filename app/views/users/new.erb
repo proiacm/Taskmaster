@@ -6,10 +6,9 @@
 <br>
 
 <div class="errors">
-<%@alert = @user.errors.full_messages if @user%>
+<%if @user%>
   <ul>
-    <% if @alert %> 
-    <%@alert.each do |msg| %>
+    <%@user.errors.full_messages.each do |msg| %>
       <li><%= msg + "!" %></li>
     <% end %>
     <%end%>
