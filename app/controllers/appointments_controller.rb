@@ -1,6 +1,6 @@
 class AppointmentsController < ApplicationController 
 
-    get '/appointments' do #index route
+    get '/appointments' do
         if !logged_in?
             redirect '/login'
         end
@@ -9,7 +9,7 @@ class AppointmentsController < ApplicationController
             erb :'/appointments/index'
     end
 
-    get '/appointments/new' do #new route
+    get '/appointments/new' do 
         if !logged_in? 
             redirect '/login' 
         else
@@ -17,21 +17,20 @@ class AppointmentsController < ApplicationController
         end
     end 
 
-    post '/appointments' do #create route
+    post '/appointments' do 
         @appt = current_user.appointments.build(params)
         if @appt
             if @appt.save
                 redirect "/appointments/#{@appt.id}"
-            else 
-                #handle error messages
-                erb :'/appointments/new'
+            else
+                erb :'/appointments/new' #handle error messages
             end
         else
         redirect '/appointments/new'
         end
     end
 
-    get '/appointments/:id' do #show route
+    get '/appointments/:id' do
         if !logged_in? 
             redirect '/login'
         end
@@ -39,7 +38,7 @@ class AppointmentsController < ApplicationController
             erb :'/appointments/show'
     end 
 
-    get '/appointments/:id/edit' do #edit route
+    get '/appointments/:id/edit' do
         if !logged_in?
             redirect '/login'
         end
@@ -50,21 +49,20 @@ class AppointmentsController < ApplicationController
             erb :'/appointments/edit'
     end 
 
-    patch '/appointments/:id' do #update route
+    patch '/appointments/:id' do
         @appt = current_user.appointments.find_by_id(params[:id])
         if @appt
             if @appt.update(title: params[:title], date: params[:date], time: params[:time])
                 redirect to "/appointments/#{@appt.id}"
             else
-                #handle error messages
-                erb :'/appointments/edit'
+                erb :'/appointments/edit' #handle error messages
             end
         else
             redirect '/appointments'
         end 
     end
 
-    delete '/appointments/:id' do #destroy route
+    delete '/appointments/:id' do
         if !logged_in? 
             redirect '/login'
         end

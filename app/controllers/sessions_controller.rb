@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
           session[:user_id] = @user.id
           redirect '/appointments'
         else 
-          erb :'/sessions/login' #handle error messages
+          erb :'/sessions/login' 
         end
       end
 
