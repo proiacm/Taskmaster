@@ -8,6 +8,11 @@
 <h1>Hello, <%=current_user.username%>!</h1>
 <h3>Take a look at your upcoming appointments:</h3>
 <br>
+<form action='/appointments/search' method='POST'>
+<input type="date" name="date">
+<input type="submit" class="button1" value="Search">
+</form>
+<br>
 <%@appts.each do |a|%>
  <a href="/appointments/<%=a.id%>"><%=a.title.strip.titleize%></a><br>
 on <%=a.date%><br>

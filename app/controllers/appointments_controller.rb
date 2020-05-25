@@ -30,6 +30,12 @@ class AppointmentsController < ApplicationController
         end
     end
 
+    post '/appointments/search' do #search bar
+        @appts = current_user.appointments.where(date: params[:date])
+        @appts = @appts.order(date: :asc, time: :asc)
+        erb :'/appointments/index' 
+    end
+
     get '/appointments/:id' do
         if !logged_in? 
             redirect '/login'
