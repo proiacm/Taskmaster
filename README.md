@@ -1,7 +1,7 @@
-# Glamlex 
-Appointment Manager Web App
+# Taskmaster
+Task Manager App built using Ruby/Sinatra
 
-![](https://media.giphy.com/media/UpnkiPR6CAq7HqtI87/giphy.gif)
+![](https://i.imgur.com/6Ud8dVB.gif)
 
 ## Prerequisites:
 
