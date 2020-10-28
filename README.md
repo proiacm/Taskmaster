@@ -1,7 +1,7 @@
 # Taskmaster
 Task Manager App built using Ruby/Sinatra
 
-![](https://i.imgur.com/6Ud8dVB.gif)
+![](https://i.imgur.com/H8pQtx8.gif)
 
 ## Prerequisites:
 
